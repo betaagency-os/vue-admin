@@ -47,6 +47,7 @@
 		mounted() {
 			loadScript('https://cdn.ckeditor.com/4.7.2/full/ckeditor.js').then(() => {
 				if (!CKEDITOR.stylesSet.registered.admin) CKEDITOR.stylesSet.add('admin', ckeConfig.styleSet);
+				CKEDITOR.config.allowedContent = true;
 				this.ckeInstance = CKEDITOR.replace(this.$el, {
 					filebrowserBrowseUrl: http.defaults.baseURL + 'wysiwyg/images/browse?api_token=' + getApiToken(),
 					filebrowserUploadUrl: http.defaults.baseURL + 'wysiwyg/images/upload?api_token=' + getApiToken(),
